@@ -1,0 +1,13 @@
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.5 var(--font-body); }
+h1, h2 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; margin: 0; }
+h1 { font-size: var(--fs-hero); letter-spacing: -.01em; }
+h2 { font-size: var(--fs-2); }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+main:focus { outline: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: var(--s2); top: -4rem; background: var(--ink); color: var(--paper); padding: var(--s2) var(--s3); border-radius: var(--r-ctl); z-index: 10; }
+.skip:focus { top: var(--s2); }
+main { max-width: 46rem; margin: 0 auto; padding: var(--s5) var(--s4) var(--s6); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

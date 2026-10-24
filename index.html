@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TaskTamer Campus</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script type="module" src="js/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <p class="brand">TaskTamer Campus</p>
+  <nav aria-label="Main" id="nav"></nav>
+</header>
+<div id="banner" class="banner" role="alert" hidden></div>
+<main id="main" tabindex="-1">
+  <h1 id="greeting"></h1>
+  <p id="lede" class="lede"></p>
+  <dl id="summary" class="summary"></dl>
+  <div class="toolbar">
+    <div id="filters" class="filters" role="group" aria-label="Filter tasks"></div>
+    <button id="add-task" class="btn btn-primary" type="button">Add task</button>
+  </div>
+  <ul id="task-list" class="tasks"></ul>
+  <div id="empty" class="empty" hidden></div>
+</main>
+<p id="status" class="sr-only" role="status" aria-live="polite"></p>
+
+<dialog id="task-dialog" aria-labelledby="task-dialog-title">
+  <form id="task-form" novalidate>
+    <h2 id="task-dialog-title">Add task</h2>
+    <div class="field"><label for="f-title">Title</label>
+      <input id="f-title" name="title" type="text" maxlength="120" autocomplete="off" aria-describedby="e-title">
+      <p class="err" id="e-title" hidden></p></div>
+    <div class="row">
+      <div class="field"><label for="f-dueDate">Due date</label>
+        <input id="f-dueDate" name="dueDate" type="date" aria-describedby="e-dueDate">
+        <p class="err" id="e-dueDate" hidden></p></div>
+      <div class="field"><label for="f-dueTime">Due time (optional)</label>
+        <input id="f-dueTime" name="dueTime" type="time" aria-describedby="e-dueTime">
+        <p class="err" id="e-dueTime" hidden></p></div>
+    </div>
+    <div class="row">
+      <div class="field"><label for="f-priority">Priority</label>
+        <select id="f-priority" name="priority" aria-describedby="e-priority">
+          <option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select>
+        <p class="err" id="e-priority" hidden></p></div>
+      <div class="field"><label for="f-status">Status</label>
+        <select id="f-status" name="status" aria-describedby="e-status">
+          <option value="todo">To do</option><option value="in-progress">In progress</option><option value="done">Done</option></select>
+        <p class="err" id="e-status" hidden></p></div>
+    </div>
+    <div class="field" id="f-subjectId-wrap" hidden><label for="f-subjectId">Subject</label>
+      <select id="f-subjectId" name="subjectId"></select></div>
+    <div class="field"><label for="f-notes">Notes</label>
+      <textarea id="f-notes" name="notes" rows="3" maxlength="1000" aria-describedby="e-notes"></textarea>
+      <p class="err" id="e-notes" hidden></p></div>
+    <div class="actions">
+      <button type="button" class="btn" id="cancel-task">Cancel</button>
+      <button type="submit" class="btn btn-primary" id="submit-task">Add task</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="confirm-dialog" aria-labelledby="confirm-title">
+  <h2 id="confirm-title">Delete task?</h2>
+  <p id="confirm-text"></p>
+  <div class="actions">
+    <button type="button" class="btn" id="confirm-no">Keep task</button>
+    <button type="button" class="btn btn-danger" id="confirm-yes">Delete task</button>
+  </div>
+</dialog>
+</body>
+</html>
