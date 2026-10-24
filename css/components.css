@@ -41,3 +41,30 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
 .err { color: var(--danger); font-size: var(--fs-sm); font-weight: 600; }
 .err::before { content: "Error: "; }
 .actions { display: flex; justify-content: flex-end; gap: var(--s3); flex-wrap: wrap; }
+
+/* Attendance */
+.hint { color: var(--ink-soft); font-size: var(--fs-sm); }
+.notice { margin: var(--s4) 0; padding: var(--s3) var(--s4); background: var(--sage-tint); border-left: 4px solid var(--sage); border-radius: var(--r-ctl); overflow-wrap: anywhere; }
+.att-target { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--s3); margin: var(--s5) 0 var(--s4); }
+.att-target .field { margin: 0; flex: 1 1 14rem; }
+.att-add { margin: var(--s4) 0 var(--s5); padding: var(--s4); background: var(--card); border: 1px solid var(--line); border-radius: var(--r-card); }
+.att-add h2, .att-list-title { font-size: var(--fs-2); margin-bottom: var(--s3); }
+.subjects { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+.subject { padding: var(--s4); background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--sage); border-radius: var(--r-card); }
+.subject.is-below { border-left-color: var(--danger); }
+.att-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); }
+.subject-name { font-family: var(--font-display); font-size: var(--fs-1); font-weight: 600; overflow-wrap: anywhere; }
+.att-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s3); margin: var(--s3) 0; }
+@media (min-width: 600px) { .att-facts { grid-template-columns: 1fr 1fr 1fr 1.5fr; } }
+.att-add .row, .att-counts .row { align-items: start; }
+.att-facts dt { color: var(--ink-soft); font-size: var(--fs-sm); }
+.att-facts dd { margin: 0; font-weight: 600; }
+.att-status { font-weight: 600; }
+@media (min-width: 600px) { .att-status { white-space: nowrap; } }
+.att-met { background: var(--sage-tint); }
+.att-below { background: transparent; border: 1px solid var(--danger); color: var(--danger); }
+.att-no-data, .att-invalid { background: var(--paper); border: 1px solid var(--ink-soft); }
+.att-advice { margin: 0 0 var(--s3); overflow-wrap: anywhere; }
+.att-counts { padding-top: var(--s3); border-top: 1px solid var(--line); }
+.att-counts .field { margin-bottom: var(--s3); }
+.att-empty { padding: var(--s5) var(--s4); text-align: center; border: 1px dashed var(--ink-soft); border-radius: var(--r-card); }
