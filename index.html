@@ -18,6 +18,7 @@
 </header>
 <div id="banner" class="banner" role="alert" hidden></div>
 <main id="main" tabindex="-1">
+<section id="view-tasks">
   <h1 id="greeting"></h1>
   <p id="lede" class="lede"></p>
   <dl id="summary" class="summary"></dl>
@@ -27,6 +28,61 @@
   </div>
   <ul id="task-list" class="tasks"></ul>
   <div id="empty" class="empty" hidden></div>
+</section>
+
+<section id="view-attendance" hidden>
+  <h1 id="att-heading" tabindex="-1">Attendance</h1>
+  <p class="lede">Record classes held and attended for each subject. See how many classes you must attend or can miss to stay at your target.</p>
+
+  <form id="target-form" class="att-target" novalidate>
+    <div class="field">
+      <label for="att-target">Target attendance (%)</label>
+      <input id="att-target" name="target" type="text" inputmode="numeric" autocomplete="off" aria-describedby="att-target-help e-att-target">
+      <p class="hint" id="att-target-help">A whole number from 1 to 100. It applies to every subject.</p>
+      <p class="err" id="e-att-target" hidden></p>
+    </div>
+    <button type="submit" class="btn">Update target</button>
+  </form>
+
+  <p id="att-feedback" class="notice" hidden></p>
+
+  <form id="subject-form" class="att-add" novalidate aria-labelledby="add-subject-title">
+    <h2 id="add-subject-title">Add a subject</h2>
+    <div class="row">
+      <div class="field">
+        <label for="subject-name">Subject name</label>
+        <input id="subject-name" name="name" type="text" maxlength="60" autocomplete="off" aria-describedby="e-subject-name">
+        <p class="err" id="e-subject-name" hidden></p>
+      </div>
+      <div class="field">
+        <label for="subject-kind">Type</label>
+        <select id="subject-kind" name="kind" aria-describedby="e-subject-kind">
+          <option value="theory">Theory</option>
+          <option value="lab">Lab</option>
+        </select>
+        <p class="err" id="e-subject-kind" hidden></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="subject-held">Classes held so far</label>
+        <input id="subject-held" name="held" type="text" inputmode="numeric" autocomplete="off" value="0" aria-describedby="e-subject-held">
+        <p class="err" id="e-subject-held" hidden></p>
+      </div>
+      <div class="field">
+        <label for="subject-attended">Classes attended so far</label>
+        <input id="subject-attended" name="attended" type="text" inputmode="numeric" autocomplete="off" value="0" aria-describedby="e-subject-attended">
+        <p class="err" id="e-subject-attended" hidden></p>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn btn-primary">Add subject</button>
+    </div>
+  </form>
+
+  <h2 class="att-list-title">Your subjects</h2>
+  <ul id="subject-list" class="subjects"></ul>
+</section>
 </main>
 <p id="status" class="sr-only" role="status" aria-live="polite"></p>
 
@@ -74,5 +130,15 @@
     <button type="button" class="btn btn-danger" id="confirm-yes">Delete task</button>
   </div>
 </dialog>
+
+<dialog id="subject-confirm" aria-labelledby="subject-confirm-title">
+  <h2 id="subject-confirm-title">Remove subject?</h2>
+  <p id="subject-confirm-text"></p>
+  <div class="actions">
+    <button type="button" class="btn" id="subject-confirm-no">Keep subject</button>
+    <button type="button" class="btn btn-danger" id="subject-confirm-yes">Remove subject</button>
+  </div>
+</dialog>
+
 </body>
 </html>

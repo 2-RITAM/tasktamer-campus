@@ -15,3 +15,8 @@ export const STATUSES = ['todo', 'in-progress', 'done'];
 export const STATUS_LABELS = { todo: 'To do', 'in-progress': 'In progress', done: 'Done' };
 export const PRIORITY_LABELS = { low: 'Low priority', medium: 'Medium priority', high: 'High priority' };
 export const LIMITS = { titleMax: 120, notesMax: 1000 };
+
+export const SUBJECT_KINDS = ['theory', 'lab'];
+export const SUBJECT_KIND_LABELS = { theory: 'Theory', lab: 'Lab' };
+/** Whole-number attendance targets and input limits. */
+export const ATTENDANCE_LIMITS = { nameMax: 60, classesMax: 10000, targetMin: 1, targetMax: 100, defaultTarget: 75 };
